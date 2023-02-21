@@ -10,7 +10,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    String aa= ModalRoute.of(context)!.settings.arguments as String;
+    Map aa= ModalRoute.of(context)!.settings.arguments as Map;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -49,12 +49,12 @@ class _HomeState extends State<Home> {
               color: Color.fromARGB(113, 0, 0, 0),
               child: Column(
                 children: [
-                  Text(aa,
+                  Text(aa["ass"],
                       style: TextStyle(fontSize: 55, color: Colors.red)),
                   SizedBox(
                     height: 30,
                   ),
-                  Text("saudi",
+                  Text(aa["add"],
                       style: TextStyle(fontSize: 55, color: Colors.red))
                 ],
               ),
