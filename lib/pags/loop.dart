@@ -1,9 +1,11 @@
 // ignore_for_file: prefer_const_constructors, unused_local_variable
-import 'package:http/http.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'dart:convert';
-import 'package:intl/intl.dart';
+
+import '../classes/getData.dart';
+
+
 
 class Loop extends StatefulWidget {
   const Loop({super.key});
@@ -13,27 +15,22 @@ class Loop extends StatefulWidget {
 }
 
 class _LoopState extends State<Loop> {
-  getData() async {
-    Response response = await get(
-        Uri.parse("http://worldtimeapi.org/api/timezone/Asia/Riyadh"));
-    Map receivedData = jsonDecode(response.body);
-    String datetime = receivedData["utc_datetime"];
-    DateTime ad = DateTime.parse(datetime);
-    String offset = receivedData["utc_offset"].substring(0, 3);
-    int af = int.parse(offset);
-    DateTime realTime = ad.add(Duration(hours: af));
-    String timeNaw = DateFormat('hh:mm a').format(realTime);
-    String timeZone = receivedData["timezone"];
-    
+
+  getLodeng() async {
+    allContre one=allContre();
+    await one.getData();
     var pushReplacementNamed = Navigator.pushReplacementNamed(context, '/home',
-        arguments: {"ass": timeNaw, "add": timeZone});
+        arguments: {"ass": one.timeNaw, "add": one.timeZone,"aaa":one.aaa});
   }
+
+
+
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-     getData();
+     getLodeng();
   }
   Widget build(BuildContext context) {
     return Scaffold(
