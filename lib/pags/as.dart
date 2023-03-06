@@ -25,7 +25,12 @@ class _AsState extends State<As> {
             child: Card(
               child: ListTile(
                 tileColor:Color.fromARGB(255, 91, 123, 115),
-                onTap: () {},
+                onTap: () { Navigator.pop(context, {
+                  "time": "22:21"
+                , "locechn": "فهد"
+                ,"agg":true} 
+                
+                );},
                 leading: CircleAvatar(
                   backgroundImage: AssetImage("assets/sa.png"),
                 ),

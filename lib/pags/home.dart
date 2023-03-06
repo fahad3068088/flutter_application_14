@@ -8,10 +8,11 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
- 
+ Map aa={};
   @override
   Widget build(BuildContext context) {
-    Map aa= ModalRoute.of(context)!.settings.arguments as Map;
+    
+     aa= aa.isEmpty?ModalRoute.of(context)!.settings.arguments as Map:aa;
     String assetImage=aa ["aaa"]?"sa.png":"night.png";
     return Scaffold(
       body: Container(
@@ -26,7 +27,11 @@ class _HomeState extends State<Home> {
             ElevatedButton.icon(
               onPressed: ()async {
               dynamic result = await Navigator.pushNamed(context, '/as');
-
+                setState(() {
+                  aa={
+                       "ass":result["time"]  ,"add":result ["locechn"],"aaa":result ["agg"]
+                  };
+                });
               },
               icon: Icon(
                 Icons.edit_location,

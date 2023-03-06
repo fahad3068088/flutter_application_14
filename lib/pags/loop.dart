@@ -20,7 +20,7 @@ class _LoopState extends State<Loop> {
     allContre one=allContre();
     await one.getData();
     var pushReplacementNamed = Navigator.pushReplacementNamed(context, '/home',
-        arguments: {"ass": one.timeNaw, "add": one.timeZone,"aaa":one.aaa});
+        arguments: { "ass": one.timeNaw, "add": one.timeZone,"aaa":one.aaa });
   }
 
 
