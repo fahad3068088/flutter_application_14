@@ -13,7 +13,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     
      aa= aa.isEmpty?ModalRoute.of(context)!.settings.arguments as Map:aa;
-    String assetImage=aa ["aaa"]?"sa.png":"night.png";
+    String assetImage=aa["aaa"]?"sa.png":"night.png";
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -27,10 +27,18 @@ class _HomeState extends State<Home> {
             ElevatedButton.icon(
               onPressed: ()async {
               dynamic result = await Navigator.pushNamed(context, '/as');
+              print(result);
                 setState(() {
-                  aa={
-                       "ass":result["time"]  ,"add":result ["locechn"],"aaa":result ["agg"]
+                  if (result==null) {
+                     aa={
+                       "ass":"" ,"add":"نرجو منك اختيار الدوله","aaa":false
                   };
+                  } else {
+                    aa={
+                       "ass":result["time"]  ,"add":result ["locechn"],"aaa":result ["agg"]
+                  }; 
+                  }
+                 
                 });
               },
               icon: Icon(

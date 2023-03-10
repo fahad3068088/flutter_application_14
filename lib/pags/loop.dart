@@ -6,7 +6,6 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import '../classes/getData.dart';
 
 
-
 class Loop extends StatefulWidget {
   const Loop({super.key});
 
@@ -16,8 +15,9 @@ class Loop extends StatefulWidget {
 
 class _LoopState extends State<Loop> {
 
+
   getLodeng() async {
-    allContre one=allContre();
+    AllContre one=AllContre(cantreName:"Egypt - Cairo",flag:"egypt.png",link:"Africa/Cairo" );
     await one.getData();
     var pushReplacementNamed = Navigator.pushReplacementNamed(context, '/home',
         arguments: { "ass": one.timeNaw, "add": one.timeZone,"aaa":one.aaa });
